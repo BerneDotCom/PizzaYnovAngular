@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ClarityModule } from "clarity-angular";
+
 
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
@@ -9,10 +11,11 @@ import { IngredientComponent } from './ingredient/ingredient.component';
   declarations: [
     AppComponent,
     PizzaComponent,
-    IngredientComponent
+    IngredientComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ClarityModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
