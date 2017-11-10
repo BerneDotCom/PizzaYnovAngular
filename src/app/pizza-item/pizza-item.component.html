@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row" *ngIf="pizza">
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 offset-lg-2 offset-md-2">
-        <div class="card" *ngFor="let pizza of pizzaList">
+        <div class="card">
             <div class="card-header">
                 {{pizza.name}} - {{pizza.price}} €
             </div>
@@ -14,7 +14,6 @@
             </div>
             <div class="card-footer">
                 <h4>{{pizza.price}} €</h4>
-                <button class="btn btn-sm btn-link" routerLink="details/{{pizza._id}}">Voir</button>
                 <button class="btn btn-sm btn-link" routerLink="addBucket/{{pizza}}">Ajouter au panier</button>
             </div>
         </div>
