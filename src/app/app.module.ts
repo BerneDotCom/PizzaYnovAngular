@@ -9,7 +9,6 @@ import { APP_ROUTES_PROVIDER } from './app.routes';
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
-import { BucketComponent } from './bucket/bucket.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import { PizzaAdminComponent } from './pizza-admin/pizza-admin.component';
 import { FormIngredientComponent } from './form-ingredient/form-ingredient.component';
@@ -19,7 +18,6 @@ import { FormIngredientComponent } from './form-ingredient/form-ingredient.compo
     AppComponent,
     PizzaComponent,
     IngredientComponent,
-    BucketComponent,
     PizzaItemComponent,
     PizzaAdminComponent,
     FormIngredientComponent,
