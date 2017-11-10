@@ -1,0 +1,20 @@
+[
+  {
+    "_id": 1,
+    "name": "Jambon",
+    "weight": "120 Gr",
+    "price": 2
+  },
+  {
+    "_id": 2,
+    "name": "Fromage",
+    "weight": "200 Gr",
+    "price": 3
+  },
+  {
+    "_id": 3,
+    "name": "Champignon",
+    "weight": "50 Gr",
+    "price": 1
+  }
+]

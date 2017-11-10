@@ -16,9 +16,9 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaService: PizzaService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-      let id = this.route.snapshot.params['id'];
-      this.pizzaService.get().subscribe(data => {
-        this.pizzaList = data;
-      });
+    let id = this.route.snapshot.params['id'];
+    this.pizzaService.get().subscribe(data => {
+      this.pizzaList = data;
+    });
   }
 }
