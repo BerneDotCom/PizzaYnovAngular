@@ -10,6 +10,7 @@ import { PizzaComponent } from './pizza/pizza.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { BucketComponent } from './bucket/bucket.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
+import { PizzaAdminComponent } from './pizza-admin/pizza-admin.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PizzaItemComponent } from './pizza-item/pizza-item.component';
     IngredientComponent,
     BucketComponent,
     PizzaItemComponent,
+    PizzaAdminComponent,
   ],
   imports: [
     BrowserModule,

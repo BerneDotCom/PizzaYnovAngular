@@ -15,6 +15,9 @@
             <div class="card-footer">
                 <h4>{{pizza.price}} €</h4>
                 <button class="btn btn-sm btn-link" routerLink="addBucket/{{pizza}}">Ajouter au panier</button>
+                <button *ngIf="isAdmin" type="button" class="btn btn-icon btn-danger">
+                    <clr-icon shape="trash"></clr-icon>
+                </button>
             </div>
         </div>
     </div>

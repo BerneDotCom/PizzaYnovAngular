@@ -12,10 +12,16 @@ import { PizzaService } from '../pizza/services/pizza.service';
 })
 export class PizzaItemComponent implements OnInit {
   pizza: Pizza;
+  isAdmin: Boolean;
+
   constructor(private route: ActivatedRoute, private pizzaService: PizzaService) { }
 
   ngOnInit() {
     let pizzaId = this.route.snapshot.params['id'];
+
+    //If the user come from administration panel
+    this.isAdmin = this.route.snapshot.params['admin'];
+    
     this.pizzaService.getById(pizzaId).subscribe(data => {
       this.pizza = data;
     });
