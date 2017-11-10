@@ -11,6 +11,7 @@ const appRoutes: Routes = [
     {path: 'addBucket/:id', component: BucketComponent},
     {path: 'admin/pizza', component: PizzaAdminComponent},
     {path: 'ingredients', component: IngredientComponent},
+    {path: 'ingredients/admin/:admin', component: IngredientComponent},
 ];
 
 export const APP_ROUTES_PROVIDER = RouterModule.forRoot(

@@ -12,11 +12,13 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class IngredientComponent implements OnInit {
   ingredientList: Ingredient[];
-
+  isAdmin: Boolean;
   constructor(private ingredientService: IngredientService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
+    this.isAdmin = this.route.snapshot.params['admin'];
+
     this.ingredientService.get().subscribe(data => {
       this.ingredientList = data;
     });
