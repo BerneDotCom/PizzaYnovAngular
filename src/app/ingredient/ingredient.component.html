@@ -1,11 +1,12 @@
 <h1>Liste des ingredients</h1>
-<button *ngIf="isAdmin" class="btn btn-success">Ajouter un ingredient</button>
+<button *ngIf="isAdmin" class="btn btn-success" routerLink="/ingredient/add">Ajouter un ingredient</button>
 
 <clr-datagrid>
     <clr-dg-column>Ingredient Id</clr-dg-column>
     <clr-dg-column>Nom</clr-dg-column>
     <clr-dg-column>Poids</clr-dg-column>
     <clr-dg-column>Prix</clr-dg-column>
+    <clr-dg-column *ngIf="isAdmin">Editer</clr-dg-column>
     <clr-dg-column *ngIf="isAdmin">Supprimer</clr-dg-column>
 
     <clr-dg-row *ngFor="let ingredient of ingredientList">
@@ -13,8 +14,13 @@
         <clr-dg-cell>{{ingredient.name}}</clr-dg-cell>
         <clr-dg-cell>{{ingredient.weight}}</clr-dg-cell>
         <clr-dg-cell>{{ingredient.price}}</clr-dg-cell>
+        <clr-dg-cell *ngIf="isAdmin">
+          <button type="button" class="btn btn-icon btn-primary" routerLink="/ingredient/edit/{{ingredient._id}}">
+              <clr-icon shape="pencil"></clr-icon>
+          </button>
+        </clr-dg-cell>
         <clr-dg-cell *ngIf="isAdmin" >
-          <button type="button" class="btn btn-icon btn-danger" (click)="delete(pizza._id)">
+          <button type="button" class="btn btn-icon btn-danger" (click)="delete(ingredient._id)">
               <clr-icon shape="trash"></clr-icon>
           </button>
         </clr-dg-cell>
