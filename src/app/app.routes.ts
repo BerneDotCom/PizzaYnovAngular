@@ -14,6 +14,7 @@ const appRoutes: Routes = [
     {path: 'details/:id/:admin', component: PizzaItemComponent},
     {path: 'admin/pizza', component: PizzaAdminComponent},
     {path: 'pizza/add', component: FormPizzaComponent},
+    {path: 'pizza/edit/:id', component: FormPizzaComponent},
     {path: 'ingredients', component: IngredientComponent},
     {path: 'ingredients/admin/:admin', component: IngredientComponent},
     {path: 'ingredient/add', component: FormIngredientComponent},

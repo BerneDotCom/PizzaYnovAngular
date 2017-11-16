@@ -21,6 +21,7 @@ export class FormPizzaComponent implements OnInit {
   pizza: Pizza;
   base64textString: String;
   ingredientList: Array<Ingredient>
+
   constructor(private pizzaService: PizzaService, public route: ActivatedRoute, private router: Router, private ingredientService: IngredientService) { }
 
   ngOnInit() {
@@ -32,20 +33,21 @@ export class FormPizzaComponent implements OnInit {
     * Initialise form
     */
     this.form = new FormGroup({
-      // _id: new FormControl(''),
+      _id: new FormControl(''),
       name: new FormControl('', Validators.minLength(3)),
       desc: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
-      // picture: new FormControl(''),
-      // update_at: new FormControl(''),
-      // create_at: new FormControl(''),
+      picture: new FormControl(''),
+      update_at: new FormControl(''),
+      create_at: new FormControl(''),
       ingredient_ids: new FormArray([new FormControl('')]),
+      __v: new FormControl('')
     });
 
     //Id pizza from the URL
     let pizzaId = this.route.snapshot.params['id'];
 
-    if(pizzaId != null)
+    if(pizzaId != "")
     {
       this.pizzaService.getById(pizzaId).subscribe(data => {
         this.form.setValue(data);
@@ -64,21 +66,19 @@ export class FormPizzaComponent implements OnInit {
     //Setting the pizza with the form value
     this.pizza = this.form.value;
     this.pizza.picture = this.base64textString;
-    //Remove empty ingredient :
-    // this.pizza.ingredient_ids = this.form.controls.ingredient_ids.shift();
 
     //If the pizza id is set:  we update it
     // Else : we create it
-    // if(this.pizza._id > 0){
-    //   this.pizzaService.update(this.pizza).subscribe(data => {
-    //     this.router.navigateByUrl('ingredients');
-    //   });
-    // }
-    // else{
+    if(this.pizza._id != ""){
+      this.pizzaService.update(this.pizza).subscribe(data => {
+        this.router.navigateByUrl('ingredients');
+      });
+    }
+    else{
       this.pizzaService.create(this.pizza).subscribe(data => {
         this.router.navigateByUrl('/');
       });
-    // }
+    }
   }
 
   /**
