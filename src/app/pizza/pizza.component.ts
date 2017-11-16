@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Pipe, PipeTransform } from '@angular/core';
 import { Pizza } from './models/pizza';
 import { PizzaService } from './services/pizza.service';
 import { ActivatedRoute} from '@angular/router';
@@ -13,6 +13,8 @@ import { ActivatedRoute} from '@angular/router';
 export class PizzaComponent implements OnInit {
 
   pizzaList: Pizza[];
+  public sliderValue: Number;
+
   constructor(private pizzaService: PizzaService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -20,5 +22,7 @@ export class PizzaComponent implements OnInit {
     this.pizzaService.get().subscribe(data => {
       this.pizzaList = data;
     });
+
+    this.sliderValue = 40;
   }
 }

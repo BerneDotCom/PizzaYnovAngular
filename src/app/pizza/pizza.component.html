@@ -1,7 +1,12 @@
 <h1>Liste des pizzas</h1>
 <div class="row">
+  <span>Prix max</span>
+  <input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
+  <span>{{sliderValue}} €</span>
+</div>
+<div class="row">
     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 offset-lg-2 offset-md-2">
-        <div class="card" *ngFor="let pizza of pizzaList">
+        <div class="card" *ngFor="let pizza of pizzaList | PricePipe:sliderValue">
             <div class="card-header">
                 {{pizza.name}} - {{pizza.price}} €
             </div>

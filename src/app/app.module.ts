@@ -4,6 +4,7 @@ import { ClarityModule } from "clarity-angular";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_ROUTES_PROVIDER } from './app.routes';
+import { FormsModule } from '@angular/forms';
 
 //App components
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import { PizzaAdminComponent } from './pizza-admin/pizza-admin.component';
 import { FormIngredientComponent } from './form-ingredient/form-ingredient.component';
 import { FormPizzaComponent } from './form-pizza/form-pizza.component';
+import { PricePipe } from './pricepipe';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { FormPizzaComponent } from './form-pizza/form-pizza.component';
     PizzaAdminComponent,
     FormIngredientComponent,
     FormPizzaComponent,
+    PricePipe
   ],
   imports: [
     BrowserModule,
     ClarityModule.forRoot(),
     HttpClientModule,
     APP_ROUTES_PROVIDER,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
