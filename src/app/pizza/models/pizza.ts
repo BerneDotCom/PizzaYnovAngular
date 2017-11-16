@@ -1,5 +1,4 @@
-export interface Pizza{
-  _id:Number;
+export interface Pizza{ 
   name:String;
   desc:String;
   picture:String;

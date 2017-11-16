@@ -12,6 +12,7 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import { PizzaAdminComponent } from './pizza-admin/pizza-admin.component';
 import { FormIngredientComponent } from './form-ingredient/form-ingredient.component';
+import { FormPizzaComponent } from './form-pizza/form-pizza.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormIngredientComponent } from './form-ingredient/form-ingredient.compo
     PizzaItemComponent,
     PizzaAdminComponent,
     FormIngredientComponent,
+    FormPizzaComponent,
   ],
   imports: [
     BrowserModule,

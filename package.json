@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
     "@webcomponents/custom-elements": "^1.0.0",
+    "angular-base64-upload": "^0.1.23",
     "clarity-angular": "^0.10.12",
     "clarity-icons": "^0.10.12",
     "clarity-ui": "^0.10.12",
