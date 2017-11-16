@@ -76,7 +76,7 @@ export class FormPizzaComponent implements OnInit {
     // }
     // else{
       this.pizzaService.create(this.pizza).subscribe(data => {
-        this.router.navigateByUrl('pizza');
+        this.router.navigateByUrl('/');
       });
     // }
   }

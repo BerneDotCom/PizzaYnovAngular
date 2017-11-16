@@ -10,6 +10,13 @@
                 </div>
                 <div class="card-text">
                     <img src="{{pizza.picture}}" height="80%" width="80%"/>
+                    <ul class="list">
+                        <li *ngFor="let ingredient of ingredients">
+                          {{ingredient.name}}
+                          -
+                          {{ingredient.weight}} Gr.
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="card-footer">

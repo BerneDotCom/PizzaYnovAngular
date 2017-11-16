@@ -28,7 +28,7 @@ export class PizzaAdminComponent implements OnInit {
   */
   delete(id: any){
     this.pizzaService.delete(id).subscribe(data => {
-      this.router.navigateByUrl('/');
+      window.location.reload();
     });
   }
 

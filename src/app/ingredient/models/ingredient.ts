@@ -1,5 +1,5 @@
 export interface Ingredient{
-  _id: Number;
+  _id: String;
   name:String;
   weight:String;
   price:Number;

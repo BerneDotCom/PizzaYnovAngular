@@ -18,10 +18,6 @@
                   <input type="checkbox" id="{{ingredient.name}}" (click)="onChange(ingredient._id, $event.target.checked)">
                   <label for="{{ingredient.name}}">{{ingredient.name}}</label>
               </div>
-              <!-- <div *ngFor="let ingredient of ingredientList"> -->
-                <!-- <input type="checkbox" name="ingredient_ids" (change)="onChange(ingredient._id, $event.target.checked)">{{ingredient.name}} - {{ingredient.name}}<br> -->
-                <!-- <input type="checkbox" formControlName="ingredient_ids" > {{ingredient.name}}<br> -->
-              <!-- </div> -->
             </div>
             <div class="form-group">
               <label>Prix:</label>
