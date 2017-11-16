@@ -21,9 +21,10 @@ export class PizzaItemComponent implements OnInit {
 
     //If the user come from administration panel
     this.isAdmin = this.route.snapshot.params['admin'];
-    
+
     this.pizzaService.getById(pizzaId).subscribe(data => {
-      this.pizza = data;
+      this.pizza = data[0];
+      console.log('MA PIZZA : ', this.pizza);
     });
   }
 

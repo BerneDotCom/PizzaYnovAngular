@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PizzaService {
-  private url = "";
+  private url = "https://pizza-bernedotcom.c9users.io/pizza/";
 
   constructor(public http: HttpClient) { }
 
@@ -14,7 +14,7 @@ export class PizzaService {
   * Get all pizzas
   */
   get(): Observable<Pizza[]> {
-    return this.http.get<Pizza[]>('assets/pizza.json');
+    return this.http.get<Pizza[]>(this.url);
   }
 
   /**
@@ -28,7 +28,7 @@ export class PizzaService {
   * Delete a pizza by id
   */
   delete(id){
-    return this.http.delete(this.url + '/delete/'+ id);
+    return this.http.delete(this.url + id);
   }
 
   /**
