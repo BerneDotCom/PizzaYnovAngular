@@ -35,7 +35,7 @@ export class IngredientService {
   * Update a ingredient
   */
   update(ingredient: Ingredient){
-    return this.http.put(this.url, ingredient);
+    return this.http.put(this.url + ingredient._id, ingredient);
   }
 
   /**

@@ -15,6 +15,7 @@ const appRoutes: Routes = [
     {path: 'ingredients', component: IngredientComponent},
     {path: 'ingredients/admin/:admin', component: IngredientComponent},
     {path: 'ingredient/add', component: FormIngredientComponent},
+    {path: 'ingredient/edit/:id', component: FormIngredientComponent},
 ];
 
 export const APP_ROUTES_PROVIDER = RouterModule.forRoot(

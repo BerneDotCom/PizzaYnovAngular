@@ -15,7 +15,6 @@ import { ActivatedRoute, Router} from '@angular/router';
 export class FormIngredientComponent implements OnInit {
   form: FormGroup;
   ingredient: Ingredient;
-
   constructor(private ingredientService: IngredientService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -23,19 +22,43 @@ export class FormIngredientComponent implements OnInit {
     * Initialise form
     */
     this.form = new FormGroup({
+      _id: new FormControl('', Validators.required),
       name: new FormControl('', Validators.minLength(3)),
       weight: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required)
+      price: new FormControl('', Validators.required),
+      create_at: new FormControl(''),
+      update_at: new FormControl(''),
+      __v: new FormControl(''),
+      pizza_ids: new FormControl('')
     });
+
+    let ingredientId = this.route.snapshot.params['id'];
+    if(ingredientId != null)
+    {
+      this.ingredientService.getById(ingredientId).subscribe(data => {
+        this.form.setValue(data);
+      });
+    }
   }
 
-/**
-* When the form is submitted, call the API to create a new ingredient
-*/
+  /**
+  * When the form is submitted, call the API to create a new ingredient
+  */
   onSubmit(){
+    //Setting the ingredient with the form value
     this.ingredient = this.form.value;
-    this.ingredientService.create(this.ingredient).subscribe(data => {
-      this.router.navigateByUrl('ingredients');
-    });
+
+    //If the ingredient id is set:  we update it
+    // Else : we create it
+    if(this.ingredient._id != null){
+      this.ingredientService.update(this.ingredient).subscribe(data => {
+        this.router.navigateByUrl('ingredients');
+      });
+    }
+    else{
+      this.ingredientService.create(this.ingredient).subscribe(data => {
+        this.router.navigateByUrl('ingredients');
+      });
+    }
   }
 }
