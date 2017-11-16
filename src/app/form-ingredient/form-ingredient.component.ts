@@ -29,9 +29,13 @@ export class FormIngredientComponent implements OnInit {
     });
   }
 
+/**
+* When the form is submitted, call the API to create a new ingredient
+*/
   onSubmit(){
     this.ingredient = this.form.value;
-    this.ingredientService.create(this.ingredient);
-    this.router.navigateByUrl('/ingredients');
+    this.ingredientService.create(this.ingredient).subscribe(data => {
+      this.router.navigateByUrl('ingredients');
+    });
   }
 }
