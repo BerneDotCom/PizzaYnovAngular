@@ -7,8 +7,7 @@ import { ActivatedRoute, Router} from '@angular/router';
   selector: 'app-ingredient',
   templateUrl: './ingredient.component.html',
   styleUrls: ['./ingredient.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [IngredientService]
+  encapsulation: ViewEncapsulation.None
 })
 export class IngredientComponent implements OnInit {
   ingredientList: Ingredient[];

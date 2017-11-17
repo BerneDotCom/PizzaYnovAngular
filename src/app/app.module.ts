@@ -15,6 +15,8 @@ import { PizzaAdminComponent } from './pizza-admin/pizza-admin.component';
 import { FormIngredientComponent } from './form-ingredient/form-ingredient.component';
 import { FormPizzaComponent } from './form-pizza/form-pizza.component';
 import { PricePipe } from './pricepipe';
+import { IngredientService} from './ingredient/services/ingredient.service';
+import { PizzaService} from './pizza/services/pizza.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { PricePipe } from './pricepipe';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [IngredientService, PizzaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

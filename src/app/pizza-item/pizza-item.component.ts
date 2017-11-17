@@ -2,16 +2,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Pizza } from '../pizza/models/pizza';
 import { Ingredient } from '../ingredient/models/ingredient';
 import { ActivatedRoute} from '@angular/router';
-import { PizzaService } from '../pizza/services/pizza.service';
-import { IngredientService } from '../ingredient/services/ingredient.service';
-
+import { IngredientService} from '../ingredient/services/ingredient.service';
+import { PizzaService} from '../pizza/services/pizza.service';
 
 @Component({
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',
   styleUrls: ['./pizza-item.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [PizzaService, IngredientService]
+  encapsulation: ViewEncapsulation.None
 })
 export class PizzaItemComponent implements OnInit {
   pizza: Pizza;

@@ -8,8 +8,7 @@ import { ActivatedRoute, Router} from '@angular/router';
   selector: 'app-form-ingredient',
   templateUrl: './form-ingredient.component.html',
   styleUrls: ['./form-ingredient.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [IngredientService]
+  encapsulation: ViewEncapsulation.None
 })
 
 export class FormIngredientComponent implements OnInit {

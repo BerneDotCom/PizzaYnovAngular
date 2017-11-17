@@ -7,8 +7,7 @@ import { ActivatedRoute, Router} from '@angular/router';
   selector: 'app-pizza-admin',
   templateUrl: './pizza-admin.component.html',
   styleUrls: ['./pizza-admin.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [PizzaService]
+  encapsulation: ViewEncapsulation.None
 })
 export class PizzaAdminComponent implements OnInit {
   pizzaList: Pizza[];

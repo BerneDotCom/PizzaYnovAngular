@@ -1,6 +1,6 @@
 <h1>Liste des pizzas</h1>
 <div class="row">
-  <span>Prix max</span>
+  <span>Prix max :</span>
   <input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
   <span>{{sliderValue}} €</span>
 </div>
@@ -15,7 +15,7 @@
                     {{pizza.desc}}
                 </div>
                 <div class="card-text">
-                    <img src="{{pizza.picture}}" height="80%" width="80%"/>
+                    <img src="{{pizza.picture}}" height="60%" width="60%"/>
                 </div>
             </div>
             <div class="card-footer">

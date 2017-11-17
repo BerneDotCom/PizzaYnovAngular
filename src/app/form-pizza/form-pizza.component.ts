@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
-
+import { IngredientService} from '../ingredient/services/ingredient.service';
 import { PizzaService} from '../pizza/services/pizza.service';
 import { Pizza } from '../pizza/models/pizza';
-import { IngredientService} from '../ingredient/services/ingredient.service';
+
 import { Ingredient } from '../ingredient/models/ingredient';
 
 import { ActivatedRoute, Router} from '@angular/router';
@@ -12,8 +12,7 @@ import { ActivatedRoute, Router} from '@angular/router';
   selector: 'app-form-pizza',
   templateUrl: './form-pizza.component.html',
   styleUrls: ['./form-pizza.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [PizzaService, IngredientService]
+  encapsulation: ViewEncapsulation.None
 })
 
 export class FormPizzaComponent implements OnInit {
