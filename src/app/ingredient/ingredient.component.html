@@ -2,14 +2,14 @@
 <button *ngIf="isAdmin" class="btn btn-success" routerLink="/ingredient/add">Ajouter un ingredient</button>
 
 <clr-datagrid>
-    <clr-dg-column>Ingredient Id</clr-dg-column>
-    <clr-dg-column>Nom</clr-dg-column>
-    <clr-dg-column>Poids</clr-dg-column>
-    <clr-dg-column>Prix</clr-dg-column>
+    <clr-dg-column [clrDgField]="'_id'">Ingredient Id</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Nom</clr-dg-column>
+    <clr-dg-column [clrDgField]="'weight'">Poids</clr-dg-column>
+    <clr-dg-column [clrDgField]="'price'">Prix</clr-dg-column>
     <clr-dg-column *ngIf="isAdmin">Editer</clr-dg-column>
     <clr-dg-column *ngIf="isAdmin">Supprimer</clr-dg-column>
 
-    <clr-dg-row *ngFor="let ingredient of ingredientList">
+    <clr-dg-row *clrDgItems="let ingredient of ingredientList">
         <clr-dg-cell>{{ingredient._id}}</clr-dg-cell>
         <clr-dg-cell>{{ingredient.name}}</clr-dg-cell>
         <clr-dg-cell>{{ingredient.weight}}</clr-dg-cell>

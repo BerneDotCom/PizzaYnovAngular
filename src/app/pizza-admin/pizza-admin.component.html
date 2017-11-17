@@ -2,15 +2,16 @@
 <button class="btn btn-success" routerLink="/pizza/add">Créer une pizza</button>
 
 <clr-datagrid>
-    <clr-dg-column>Pizza Id</clr-dg-column>
-    <clr-dg-column>Nom</clr-dg-column>
-    <clr-dg-column>Prix</clr-dg-column>
+    <clr-dg-column [clrDgField]="'_id'">Pizza Id</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Nom</clr-dg-column>
+    <clr-dg-column [clrDgField]="'desc'">Description</clr-dg-column>
+    <clr-dg-column [clrDgField]="'price'">Prix</clr-dg-column>
     <clr-dg-column>Editer</clr-dg-column>
     <clr-dg-column>Supprimer</clr-dg-column>
-
-    <clr-dg-row *ngFor="let pizza of pizzaList">
+    <clr-dg-row *clrDgItems="let pizza of pizzaList">
         <clr-dg-cell>{{pizza._id}}</clr-dg-cell>
         <clr-dg-cell>{{pizza.name}}</clr-dg-cell>
+        <clr-dg-cell>{{pizza.desc}}</clr-dg-cell>
         <clr-dg-cell>{{pizza.price}}</clr-dg-cell>
         <clr-dg-cell>
           <button type="button" class="btn btn-icon btn-primary" routerLink="/pizza/edit/{{pizza._id}}">

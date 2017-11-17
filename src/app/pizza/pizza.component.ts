@@ -12,7 +12,8 @@ import { ActivatedRoute} from '@angular/router';
 export class PizzaComponent implements OnInit {
 
   pizzaList: Pizza[];
-  public sliderValue: Number;
+  public sliderValueMin: Number;
+  public sliderValueMax: Number;
 
   constructor(private pizzaService: PizzaService, private route: ActivatedRoute) { }
 
@@ -22,6 +23,7 @@ export class PizzaComponent implements OnInit {
       this.pizzaList = data;
     });
 
-    this.sliderValue = 40;
+    this.sliderValueMax = 40;
+    this.sliderValueMin = 0;
   }
 }

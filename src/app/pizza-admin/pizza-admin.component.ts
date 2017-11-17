@@ -32,3 +32,7 @@ export class PizzaAdminComponent implements OnInit {
   }
 
 }
+
+interface StringFilter<T> {
+    accepts(item: T, search: string): boolean;
+}
