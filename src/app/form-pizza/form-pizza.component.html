@@ -3,7 +3,7 @@
         <section>
           <h1>Nouvelle pizza:</h1>
           <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-block">
-            <!-- <input type="hidden" formControlName="_id"> -->
+            <input type="hidden" formControlName="_id">
             <div class="form-group">
               <label>Nom :</label>
               <input type="text" formControlName="name" class="col-lg-6">

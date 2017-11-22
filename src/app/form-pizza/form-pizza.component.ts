@@ -40,14 +40,14 @@ export class FormPizzaComponent implements OnInit {
     });
 
     //Id pizza from the URL
-    // let pizzaId = this.route.snapshot.params['id'];
+    let pizzaId = this.route.snapshot.params['id'];
 
-    // if(typeof(pizzaId) == undefined)
-    // {
-    //   this.pizzaService.getById(pizzaId).subscribe(data => {
-    //     this.form.setValue(data);
-    //   });
-    // }
+    if(typeof(pizzaId) == undefined)
+    {
+      this.pizzaService.getById(pizzaId).subscribe(data => {
+        this.form.setValue(data);
+      });
+    }
   }
 
 
@@ -65,16 +65,16 @@ export class FormPizzaComponent implements OnInit {
 console.log("PIZZA ID : ", this.pizza._id);
     //If the pizza id is set:  we update it
     // Else : we create it
-    // if(this.pizza._id != ""){
-    //   this.pizzaService.update(this.pizza).subscribe(data => {
-    //     this.router.navigateByUrl('ingredients');
-    //   });
-    // }
-    // else{
+    if(typeof(this.pizza._id) == undefined){
+      this.pizzaService.update(this.pizza).subscribe(data => {
+        this.router.navigateByUrl('ingredients');
+      });
+    }
+    else{
       this.pizzaService.create(this.pizza).subscribe(data => {
         this.router.navigateByUrl('/');
       });
-    // }
+    }
   }
 
   /**

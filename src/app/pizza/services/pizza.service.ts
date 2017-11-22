@@ -35,7 +35,7 @@ export class PizzaService {
   * Update a pizza
   */
   update(pizza: Pizza){
-    return this.http.put(this.url, pizza);
+    return this.http.put(this.url + pizza._id, pizza);
   }
 
   /**
