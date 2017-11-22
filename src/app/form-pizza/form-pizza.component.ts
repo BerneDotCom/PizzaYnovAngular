@@ -32,26 +32,22 @@ export class FormPizzaComponent implements OnInit {
     * Initialise form
     */
     this.form = new FormGroup({
-      _id: new FormControl(''),
       name: new FormControl('', Validators.minLength(3)),
       desc: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
       picture: new FormControl(''),
-      update_at: new FormControl(''),
-      create_at: new FormControl(''),
-      ingredient_ids: new FormArray([new FormControl('')]),
-      __v: new FormControl('')
+      ingredient_ids: new FormArray([new FormControl('')])
     });
 
     //Id pizza from the URL
-    let pizzaId = this.route.snapshot.params['id'];
+    // let pizzaId = this.route.snapshot.params['id'];
 
-    if(pizzaId != "")
-    {
-      this.pizzaService.getById(pizzaId).subscribe(data => {
-        this.form.setValue(data);
-      });
-    }
+    // if(typeof(pizzaId) == undefined)
+    // {
+    //   this.pizzaService.getById(pizzaId).subscribe(data => {
+    //     this.form.setValue(data);
+    //   });
+    // }
   }
 
 
@@ -66,18 +62,19 @@ export class FormPizzaComponent implements OnInit {
     this.pizza = this.form.value;
     this.pizza.picture = this.base64textString;
 
+console.log("PIZZA ID : ", this.pizza._id);
     //If the pizza id is set:  we update it
     // Else : we create it
-    if(this.pizza._id != ""){
-      this.pizzaService.update(this.pizza).subscribe(data => {
-        this.router.navigateByUrl('ingredients');
-      });
-    }
-    else{
+    // if(this.pizza._id != ""){
+    //   this.pizzaService.update(this.pizza).subscribe(data => {
+    //     this.router.navigateByUrl('ingredients');
+    //   });
+    // }
+    // else{
       this.pizzaService.create(this.pizza).subscribe(data => {
         this.router.navigateByUrl('/');
       });
-    }
+    // }
   }
 
   /**

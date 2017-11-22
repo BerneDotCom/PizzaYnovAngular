@@ -21,7 +21,7 @@ export class FormIngredientComponent implements OnInit {
     //Get the ingredient passed by the url
     let ingredientId = this.route.snapshot.params['id'];
 
-    if(ingredientId != "")
+    if(ingredientId != null)
     {
 
       /**
@@ -64,7 +64,7 @@ export class FormIngredientComponent implements OnInit {
 
     //If the ingredient id is set:  we update it
     // Else : we create it
-    if(this.ingredient._id != ""){
+    if(this.ingredient._id != null){
       this.ingredientService.update(this.ingredient).subscribe(data => {
         this.router.navigateByUrl('ingredients/admin/:admin');
       });
