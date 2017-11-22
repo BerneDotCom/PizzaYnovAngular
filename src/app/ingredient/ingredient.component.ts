@@ -27,7 +27,7 @@ export class IngredientComponent implements OnInit {
 
   delete(ingredientId: Number){
     this.ingredientService.delete(ingredientId).subscribe(data => {
-      this.router.navigateByUrl('ingredients');
+      location.reload();
     });
   }
 

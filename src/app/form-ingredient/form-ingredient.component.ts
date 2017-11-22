@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import { IngredientService } from '../ingredient/services/ingredient.service';
 import { Ingredient } from '../ingredient/models/ingredient';
 import { ActivatedRoute, Router} from '@angular/router';
@@ -17,25 +17,40 @@ export class FormIngredientComponent implements OnInit {
   constructor(private ingredientService: IngredientService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    /**
-    * Initialise form
-    */
-    this.form = new FormGroup({
-      _id: new FormControl('', Validators.required),
-      name: new FormControl('', Validators.minLength(3)),
-      weight: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required),
-      create_at: new FormControl(''),
-      update_at: new FormControl(''),
-      __v: new FormControl(''),
-      pizza_ids: new FormControl('')
-    });
 
+    //Get the ingredient passed by the url
     let ingredientId = this.route.snapshot.params['id'];
-    if(ingredientId != null)
+
+    if(ingredientId != "")
     {
+
+      /**
+      * Initialise form
+      */
+      this.form = new FormGroup({
+        _id: new FormControl(''),
+        name: new FormControl('', Validators.minLength(3)),
+        weight: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
+        update_at: new FormControl(''),
+        create_at: new FormControl(''),
+        pizza_ids: new FormArray([new FormControl('')]),
+        __v: new FormControl('')
+      });
+
+
       this.ingredientService.getById(ingredientId).subscribe(data => {
         this.form.setValue(data);
+      });
+    }
+    else{
+      /**
+      * Initialise form
+      */
+      this.form = new FormGroup({
+        name: new FormControl('', Validators.minLength(3)),
+        weight: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
       });
     }
   }
@@ -49,14 +64,14 @@ export class FormIngredientComponent implements OnInit {
 
     //If the ingredient id is set:  we update it
     // Else : we create it
-    if(this.ingredient._id != null){
+    if(this.ingredient._id != ""){
       this.ingredientService.update(this.ingredient).subscribe(data => {
-        this.router.navigateByUrl('ingredients');
+        this.router.navigateByUrl('ingredients/admin/:admin');
       });
     }
     else{
       this.ingredientService.create(this.ingredient).subscribe(data => {
-        this.router.navigateByUrl('ingredients');
+        this.router.navigateByUrl('ingredients/admin/:admin');
       });
     }
   }

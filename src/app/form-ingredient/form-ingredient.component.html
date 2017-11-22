@@ -1,7 +1,7 @@
 <section>
   <h1>Nouvel ingrédient:</h1>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-block">
-    <input type="hidden" formControlName="_id">
+    <input *ngIf="ingredientId != null" type="hidden" formControlName="_id">
     <div class="form-group">
       <label>Nom :</label>
       <input type="text" formControlName="name">
