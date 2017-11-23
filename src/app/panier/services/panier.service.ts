@@ -19,14 +19,6 @@ export class PanierService {
     return this.panier;
   }
 
-
-  /**
-  * Remove pizza from the bucket
-  */
-  remove(id){
-    // return this.http.delete(this.url + id);
-  }
-
   /**
   * Add pizza to the bucket
   */

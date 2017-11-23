@@ -23,8 +23,6 @@ export class PanierComponent implements OnInit {
       this.montantTotal = this.montantTotal + this.panier[i].price;
     }
 
-// console.log(this.panier);
-
   }
 
 }
