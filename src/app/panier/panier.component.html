@@ -1,0 +1,23 @@
+<h1>Votre panier</h1>
+
+<clr-datagrid>
+    <clr-dg-column [clrDgField]="'_id'">Pizza Id</clr-dg-column>
+    <clr-dg-column [clrDgField]="'name'">Nom</clr-dg-column>
+    <clr-dg-column [clrDgField]="'desc'">Description</clr-dg-column>
+    <clr-dg-column [clrDgField]="'price'">Prix</clr-dg-column>
+    <clr-dg-column>Supprimer</clr-dg-column>
+    <clr-dg-row *clrDgItems="let pizza of panier">
+        <clr-dg-cell>{{pizza._id}}</clr-dg-cell>
+        <clr-dg-cell>{{pizza.name}}</clr-dg-cell>
+        <clr-dg-cell>{{pizza.desc}}</clr-dg-cell>
+        <clr-dg-cell>{{pizza.price}}</clr-dg-cell>
+        <clr-dg-cell>
+          <button type="button" class="btn btn-icon btn-danger" (click)="delete(pizza._id)">
+              <clr-icon shape="trash"></clr-icon>
+          </button>
+        </clr-dg-cell>
+    </clr-dg-row>
+</clr-datagrid>
+
+<h3>Montant total du panier : {{montantTotal}} € </h3>
+<button type="button" class="btn btn-success">Finaliser la commmande</button>

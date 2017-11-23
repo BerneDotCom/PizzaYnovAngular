@@ -7,6 +7,7 @@ import { PizzaAdminComponent } from './pizza-admin/pizza-admin.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { FormIngredientComponent } from './form-ingredient/form-ingredient.component';
 import { FormPizzaComponent } from './form-pizza/form-pizza.component';
+import { PanierComponent } from './panier/panier.component';
 
 //App routes
 const appRoutes: Routes = [
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
     {path: 'ingredients/admin/:admin', component: IngredientComponent},
     {path: 'ingredient/add', component: FormIngredientComponent},
     {path: 'ingredient/edit/:id', component: FormIngredientComponent},
+    {path: 'bucket', component: PanierComponent},
 ];
 
 export const APP_ROUTES_PROVIDER = RouterModule.forRoot(

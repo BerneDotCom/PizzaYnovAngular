@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_ROUTES_PROVIDER } from './app.routes';
 import { FormsModule } from '@angular/forms';
 
+
 //App components
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
@@ -17,6 +18,8 @@ import { FormPizzaComponent } from './form-pizza/form-pizza.component';
 import { PricePipe } from './pricepipe';
 import { IngredientService} from './ingredient/services/ingredient.service';
 import { PizzaService} from './pizza/services/pizza.service';
+import { PanierComponent } from './panier/panier.component';
+import { PanierService } from './panier/services/panier.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { PizzaService} from './pizza/services/pizza.service';
     PizzaAdminComponent,
     FormIngredientComponent,
     FormPizzaComponent,
-    PricePipe
+    PricePipe,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +39,9 @@ import { PizzaService} from './pizza/services/pizza.service';
     HttpClientModule,
     APP_ROUTES_PROVIDER,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [IngredientService, PizzaService],
+  providers: [IngredientService, PizzaService, PanierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

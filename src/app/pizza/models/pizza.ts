@@ -3,6 +3,6 @@ export interface Pizza{
   name:String;
   desc:String;
   picture:String;
-  price:Number;
+  price:number;
   ingredient_ids:Array<Object>
 }
