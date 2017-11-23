@@ -4,6 +4,7 @@ import { Ingredient } from '../ingredient/models/ingredient';
 import { ActivatedRoute} from '@angular/router';
 import { IngredientService} from '../ingredient/services/ingredient.service';
 import { PizzaService} from '../pizza/services/pizza.service';
+import { PanierService } from '../panier/services/panier.service';
 
 @Component({
   selector: 'app-pizza-item',
@@ -16,7 +17,7 @@ export class PizzaItemComponent implements OnInit {
   isAdmin: Boolean;
   ingredients: Array<Ingredient>;
 
-  constructor(private route: ActivatedRoute, private pizzaService: PizzaService, private ingredientService: IngredientService) {
+  constructor(private route: ActivatedRoute, private pizzaService: PizzaService, private ingredientService: IngredientService, private panierService: PanierService) {
     this.ingredients = [];
   }
 
@@ -43,4 +44,9 @@ export class PizzaItemComponent implements OnInit {
     });
   }
 
+
+  addToBucket(pizza: Pizza){
+      this.panierService.add(pizza);
+      alert('Pizza ajoutée au panier !');
+  }
 }
